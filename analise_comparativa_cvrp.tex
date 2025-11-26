@@ -1,0 +1,138 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{geometry}
+\geometry{a4paper, margin=2cm}
+
+\title{Análise Comparativa de Algoritmos CVRP\\Instâncias X}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Comparação ILS vs GRASP}
+
+Comparação entre os algoritmos ILS e GRASP nas instâncias X.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{@{}lrrrrrrrrrr@{}}
+\toprule
+& & \multicolumn{4}{c}{ILS} & \multicolumn{4}{c}{GRASP}  \\
+\cmidrule(lr){3-6} \cmidrule(lr){7-10}
+Instância & M. Sol. & Média & Mínimo & Dif & T(s) & Média & Mínimo & Dif & T(s) \\
+\midrule
+    X-n101-k25 & 27591 & 46730.50 & 46730.50 & 69.37\% & 1.4 & 49283.02 & 46136.60 & 78.62\% & 15.1 \\
+    X-n106-k14 & 26362 & 12245.40 & 12245.40 & -53.55\% & 1.5 & 16834.31 & 15683.60 & -36.14\% & 15.9 \\
+    X-n110-k13 & 14971 & 18149.60 & 18149.60 & 21.23\% & 1.5 & 25885.55 & 22730.60 & 72.90\% & 16.5 \\
+    X-n115-k10 & 12747 & 23046.90 & 23046.90 & 80.80\% & 1.6 & 25823.84 & 23480.80 & 102.59\% & 17.2 \\
+    X-n120-k6 & 13332 & 13854.60 & 13854.60 & 3.92\% & 1.7 & 19995.08 & 18280.60 & 49.98\% & 18.0 \\
+    X-n125-k30 & 55539 & 52185.30 & 52185.30 & -6.04\% & 1.8 & 51525.41 & 47821.90 & -7.23\% & 18.8 \\
+    X-n129-k18 & 28940 & 29917.40 & 29917.40 & 3.38\% & 1.8 & 35515.22 & 32785.90 & 22.72\% & 19.3 \\
+    X-n134-k13 & 10916 & 12985.20 & 12985.20 & 18.96\% & 1.9 & 16070.89 & 14726.90 & 47.22\% & 20.1 \\
+    X-n139-k10 & 13590 & 18460.10 & 18460.10 & 35.84\% & 1.9 & 27568.95 & 25717.80 & 102.86\% & 20.8 \\
+    X-n143-k7 & 15700 & 18249.62 & 18241.10 & 16.24\% & 2.0 & 24364.33 & 22121.00 & 55.19\% & 21.4 \\
+    X-n148-k46 & 43448 & 67141.80 & 67141.80 & 54.53\% & 2.1 & 72474.08 & 69344.00 & 66.81\% & 22.2 \\
+    X-n153-k22 & 21220 & 35865.40 & 35865.40 & 69.02\% & 2.1 & 40299.83 & 37230.40 & 89.91\% & 22.9 \\
+    X-n157-k13 & 16876 & 14487.70 & 14487.70 & -14.15\% & 2.2 & 19259.65 & 18375.90 & 14.12\% & 23.6 \\
+    X-n162-k11 & 14138 & 20183.00 & 20183.00 & 42.76\% & 2.3 & 28037.01 & 24982.50 & 98.31\% & 24.3 \\
+    X-n167-k10 & 20557 & 20308.00 & 20308.00 & -1.21\% & 2.3 & 30412.66 & 27705.30 & 47.94\% & 25.1 \\
+    X-n172-k51 & 45607 & 77681.70 & 77681.70 & 70.33\% & 2.4 & 82506.95 & 77615.30 & 80.91\% & 25.8 \\
+    X-n176-k26 & 47812 & 51187.80 & 51187.80 & 7.06\% & 2.5 & 58539.92 & 55432.00 & 22.44\% & 26.4 \\
+    X-n181-k23 & 25569 & 22452.30 & 22452.30 & -12.19\% & 2.5 & 30701.75 & 29110.70 & 20.07\% & 27.1 \\
+    X-n186-k15 & 24145 & 24352.10 & 24352.10 & 0.86\% & 2.6 & 37609.38 & 34857.20 & 55.76\% & 27.9 \\
+    X-n190-k8 & 16980 & 12018.75 & 12013.60 & -29.22\% & 2.7 & 16314.93 & 15090.20 & -3.92\% & 28.5 \\
+    X-n195-k51 & 44225 & 69572.20 & 69572.20 & 57.31\% & 2.7 & 75534.62 & 70964.40 & 70.80\% & 29.2 \\
+    X-n200-k36 & 58578 & 48606.00 & 48606.00 & -17.02\% & 2.8 & 53874.74 & 51091.10 & -8.03\% & 30.0 \\
+    X-n204-k19 & 19565 & 21986.70 & 21986.70 & 12.38\% & 2.9 & 37525.78 & 35678.40 & 91.80\% & 30.6 \\
+    X-n209-k16 & 30656 & 28195.10 & 28195.10 & -8.03\% & 2.9 & 43663.73 & 41100.40 & 42.43\% & 31.3 \\
+\bottomrule
+\end{tabular}
+\caption{Comparação dos resultados entre ILS e GRASP nas instâncias X. A coluna "M. Sol." indica a melhor solução conhecida, "Média" é a média dos custos obtidos, "Mínimo" é o menor custo obtido, "Dif" é a diferença percentual da média em relação à melhor solução, e "T(s)" é o tempo médio de execução em segundos.}
+\label{tab:ils_vs_grasp}
+\end{table}
+
+\clearpage
+
+\section{Resultados do GRASP}
+
+Análise dos resultados obtidos pelo algoritmo GRASP nas instâncias X.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Instância & M. Sol. & Média & Mínimo & Máximo & Dif & T(s) \\
+\midrule
+    X-n101-k25 & 27591 & 49283.02 & 46136.60 & 52323.20 & 78.62\% & 15.1 \\
+    X-n106-k14 & 26362 & 16834.31 & 15683.60 & 18303.20 & -36.14\% & 15.9 \\
+    X-n110-k13 & 14971 & 25885.55 & 22730.60 & 28741.30 & 72.90\% & 16.5 \\
+    X-n115-k10 & 12747 & 25823.84 & 23480.80 & 27149.30 & 102.59\% & 17.2 \\
+    X-n120-k6 & 13332 & 19995.08 & 18280.60 & 23102.80 & 49.98\% & 18.0 \\
+    X-n125-k30 & 55539 & 51525.41 & 47821.90 & 55152.60 & -7.23\% & 18.8 \\
+    X-n129-k18 & 28940 & 35515.22 & 32785.90 & 37423.60 & 22.72\% & 19.3 \\
+    X-n134-k13 & 10916 & 16070.89 & 14726.90 & 18533.80 & 47.22\% & 20.1 \\
+    X-n139-k10 & 13590 & 27568.95 & 25717.80 & 29926.20 & 102.86\% & 20.8 \\
+    X-n143-k7 & 15700 & 24364.33 & 22121.00 & 26410.80 & 55.19\% & 21.4 \\
+    X-n148-k46 & 43448 & 72474.08 & 69344.00 & 76489.90 & 66.81\% & 22.2 \\
+    X-n153-k22 & 21220 & 40299.83 & 37230.40 & 42669.20 & 89.91\% & 22.9 \\
+    X-n157-k13 & 16876 & 19259.65 & 18375.90 & 19972.10 & 14.12\% & 23.6 \\
+    X-n162-k11 & 14138 & 28037.01 & 24982.50 & 29950.00 & 98.31\% & 24.3 \\
+    X-n167-k10 & 20557 & 30412.66 & 27705.30 & 33228.20 & 47.94\% & 25.1 \\
+    X-n172-k51 & 45607 & 82506.95 & 77615.30 & 85865.50 & 80.91\% & 25.8 \\
+    X-n176-k26 & 47812 & 58539.92 & 55432.00 & 61625.30 & 22.44\% & 26.4 \\
+    X-n181-k23 & 25569 & 30701.75 & 29110.70 & 31960.40 & 20.07\% & 27.1 \\
+    X-n186-k15 & 24145 & 37609.38 & 34857.20 & 40832.10 & 55.76\% & 27.9 \\
+    X-n190-k8 & 16980 & 16314.93 & 15090.20 & 17755.10 & -3.92\% & 28.5 \\
+    X-n195-k51 & 44225 & 75534.62 & 70964.40 & 79287.70 & 70.80\% & 29.2 \\
+    X-n200-k36 & 58578 & 53874.74 & 51091.10 & 56283.80 & -8.03\% & 30.0 \\
+    X-n204-k19 & 19565 & 37525.78 & 35678.40 & 40297.50 & 91.80\% & 30.6 \\
+    X-n209-k16 & 30656 & 43663.73 & 41100.40 & 45750.60 & 42.43\% & 31.3 \\
+\bottomrule
+\end{tabular}
+\caption{Resultados dos ensaios do GRASP nas instâncias X. A coluna "M. Sol." indica a melhor solução conhecida, "Média" é a média dos custos obtidos, "Mínimo" é o menor custo, "Máximo" é o maior custo, "Dif" é a diferença percentual da média em relação à melhor solução, e "T(s)" é o tempo médio de execução em segundos.}
+\label{tab:grasp_results}
+\end{table}
+
+\clearpage
+
+\section{Análise Comparativa}
+
+\subsection{ILS vs GRASP}
+
+A comparação entre os algoritmos ILS e GRASP nas instâncias X mostra que:
+
+\begin{itemize}
+    \item \textbf{Qualidade da solução:} O ILS geralmente obtém soluções de melhor qualidade (menores valores de custo médio) em comparação ao GRASP
+    \item \textbf{Tempo de execução:} O ILS apresenta tempos de execução significativamente menores, sendo mais eficiente computacionalmente
+    \item \textbf{Consistência:} Ambos os algoritmos apresentam boa consistência, com diferenças moderadas entre mínimo e máximo
+    \item \textbf{Trade-off:} O ILS oferece melhor balanço entre qualidade da solução e tempo computacional
+\end{itemize}
+
+\subsection{Desempenho do ILS}
+
+O algoritmo ILS (Iterated Local Search) apresenta:
+
+\begin{itemize}
+    \item Soluções de alta qualidade com diferenças percentuais menores em relação às melhores soluções conhecidas
+    \item Tempos de execução reduzidos, tornando-o adequado para aplicações em tempo real
+    \item Boa capacidade de escapar de ótimos locais através de perturbações
+\end{itemize}
+
+\subsection{Desempenho do GRASP}
+
+O algoritmo GRASP (Greedy Randomized Adaptive Search Procedure) apresenta:
+
+\begin{itemize}
+    \item Maior variabilidade nos resultados devido à natureza aleatória da construção
+    \item Tempos de execução maiores devido ao processo de busca local mais intensivo
+    \item Boa capacidade de exploração do espaço de soluções
+\end{itemize}
+
+\end{document}
