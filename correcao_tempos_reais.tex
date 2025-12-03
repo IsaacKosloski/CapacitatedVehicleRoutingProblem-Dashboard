@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{booktabs}
+
+\begin{document}
+
+\section*{Dados Corretos de Tempo - Instâncias X}
+
+\subsection*{Correção dos Tempos Mencionados}
+
+\textbf{Informação INCORRETA (estimativa):}
+\begin{itemize}
+    \item X-n1001-k43: ILS = 14,0s, GRASP = 190,2s
+    \item Razão: GRASP 13,5x mais lento
+\end{itemize}
+
+\textbf{Informação CORRETA (dados reais dos arquivos .sol):}
+\begin{itemize}
+    \item X-n1001-k43: ILS = \textbf{1,05s}, GRASP = \textbf{287,77s}
+    \item Razão: GRASP é \textbf{274x mais lento} (não 13,5x)
+\end{itemize}
+
+\subsection*{Médias Gerais para Todas as 100 Instâncias X}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Método & Tempo Médio (s) & Mínimo (s) & Máximo (s) \\
+\midrule
+ILS (2-Opt)    & 0,25   & 0,00   & 1,34 \\
+GRASP (2-Opt)  & 51,22  & 2,07   & 713,91 \\
+ILS (Swap*)    & 127,68 & 0,15   & 1365,60 \\
+GRASP (Swap*)  & 186,73 & 2,57   & 1084,20 \\
+\midrule
+\textbf{Razão GRASP/ILS (2-Opt)} & \textbf{207,7x} & - & - \\
+\textbf{Razão GRASP/ILS (Swap*)} & \textbf{1,46x} & - & - \\
+\bottomrule
+\end{tabular}
+\caption{Tempos reais de execução extraídos dos arquivos .sol}
+\end{table}
+
+\subsection*{Texto Correto para Usar}
+
+\textbf{Parágrafo corrigido:}
+
+O ILS apresentou tempos de execução significativamente menores, sendo, em média, aproximadamente \textbf{207,7 vezes mais rápido} que o GRASP quando usando o operador 2-Opt. Por exemplo, na instância X-n1001-k43, o ILS finalizou a execução em \textbf{1,05 segundos}, enquanto o GRASP demandou \textbf{287,77 segundos}.
+
+Com o operador Swap* (3-Opt), a diferença é menor: o ILS leva em média 127,68 segundos, enquanto o GRASP leva 186,73 segundos, uma diferença de apenas \textbf{1,46x}.
+
+\subsection*{Origem dos Valores Incorretos}
+
+Os valores 14,0s e 190,2s eram estimativas baseadas nas fórmulas:
+\begin{itemize}
+    \item ILS estimado: $n \times 0,014 \approx 1001 \times 0,014 = 14,0s$
+    \item GRASP estimado: $n \times 0,19 \approx 1001 \times 0,19 = 190,2s$
+\end{itemize}
+
+Essas fórmulas foram usadas antes da extração dos tempos reais dos arquivos .sol e estão \textbf{incorretas}.
+
+\subsection*{Dados Adicionais - Comparação por Instância}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Instância & ILS (s) & GRASP (s) & Razão & Swap* Melhor? \\
+\midrule
+X-n101-k25   & 0,00  & 2,07    & -    & Sim \\
+X-n200-k36   & 0,04  & 8,66    & 217x & Sim \\
+X-n500-k39   & 0,18  & 58,59   & 326x & Sim \\
+X-n1001-k43  & 1,05  & 287,77  & 274x & Sim \\
+\bottomrule
+\end{tabular}
+\caption{Exemplos de tempos reais em instâncias selecionadas}
+\end{table}
+
+\end{document}
