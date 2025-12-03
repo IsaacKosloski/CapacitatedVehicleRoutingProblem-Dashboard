@@ -134,6 +134,31 @@ print(f"  Melhor tempo: {min(grasp_swap_times):.2f}s")
 print(f"  Tempo médio: {statistics.mean(grasp_swap_times):.2f}s")
 print(f"  Pior tempo: {max(grasp_swap_times):.2f}s")
 
+# Calcular tempos em percentual relativo ao ILS (ILS = 100%, GRASP = quanto % mais lento)
+# Para 2-Opt
+ils_time_pct = {
+    'min': 100.00,  # ILS é a baseline
+    'avg': 100.00,
+    'max': 100.00
+}
+grasp_time_pct = {
+    'min': (min(grasp_times) / min(ils_times)) * 100,
+    'avg': (statistics.mean(grasp_times) / statistics.mean(ils_times)) * 100,
+    'max': (max(grasp_times) / max(ils_times)) * 100
+}
+
+# Para Swap*
+ils_swap_time_pct = {
+    'min': 100.00,  # ILS é a baseline
+    'avg': 100.00,
+    'max': 100.00
+}
+grasp_swap_time_pct = {
+    'min': (min(grasp_swap_times) / min(ils_swap_times)) * 100,
+    'avg': (statistics.mean(grasp_swap_times) / statistics.mean(ils_swap_times)) * 100,
+    'max': (max(grasp_swap_times) / max(ils_swap_times)) * 100
+}
+
 # Gerar tabela LaTeX
 print("\n" + "=" * 70)
 print("TABELA LATEX - ILS (2-Opt) vs GRASP (2-Opt)")
@@ -148,6 +173,7 @@ latex_2opt = f"""
     \\midrule
     GAP médio (\\%) & {min(ils_gaps):.2f} & {statistics.mean(ils_gaps):.2f} & {max(ils_gaps):.2f} & {min(grasp_gaps):.2f} & {statistics.mean(grasp_gaps):.2f} & {max(grasp_gaps):.2f} \\\\
     Tempo médio (s) & {min(ils_times):.2f} & {statistics.mean(ils_times):.2f} & {max(ils_times):.2f} & {min(grasp_times):.2f} & {statistics.mean(grasp_times):.2f} & {max(grasp_times):.2f} \\\\
+    Tempo (\\%) & {ils_time_pct['min']:.2f} & {ils_time_pct['avg']:.2f} & {ils_time_pct['max']:.2f} & {grasp_time_pct['min']:.2f} & {grasp_time_pct['avg']:.2f} & {grasp_time_pct['max']:.2f} \\\\
     \\bottomrule
 \\end{{tabular}}
 """
@@ -167,6 +193,7 @@ latex_swap = f"""
     \\midrule
     GAP médio (\\%) & {min(ils_swap_gaps):.2f} & {statistics.mean(ils_swap_gaps):.2f} & {max(ils_swap_gaps):.2f} & {min(grasp_swap_gaps):.2f} & {statistics.mean(grasp_swap_gaps):.2f} & {max(grasp_swap_gaps):.2f} \\\\
     Tempo médio (s) & {min(ils_swap_times):.2f} & {statistics.mean(ils_swap_times):.2f} & {max(ils_swap_times):.2f} & {min(grasp_swap_times):.2f} & {statistics.mean(grasp_swap_times):.2f} & {max(grasp_swap_times):.2f} \\\\
+    Tempo (\\%) & {ils_swap_time_pct['min']:.2f} & {ils_swap_time_pct['avg']:.2f} & {ils_swap_time_pct['max']:.2f} & {grasp_swap_time_pct['min']:.2f} & {grasp_swap_time_pct['avg']:.2f} & {grasp_swap_time_pct['max']:.2f} \\\\
     \\bottomrule
 \\end{{tabular}}
 """
